@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Feliz Cumpleaños, Tía Querida!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #ff69b4;
+            --secondary-color: #ff1493;
+            --background-color: #f9e7f5;
+            --text-color: #333;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 50px 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4em;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .subtitle {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+        
+        .cake {
+            font-size: 5em;
+            margin: 20px 0;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .message {
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            margin-top: -50px;
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 1s ease-out 1s both;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        p {
+            color: var(--text-color);
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .gallery img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+        
+        .button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+        }
+        
+        .button:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 20, 147, 0.6);
+        }
+        
+        #confetti-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+        }
+        
+        .music-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .music-control:hover {
+            background-color: var(--secondary-color);
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <canvas id="confetti-canvas"></canvas>
+    
+    <header>
+        <h1>¡Feliz Cumpleaños, Tía Querida!</h1>
+        <div class="subtitle">Un día especial para una persona especial</div>
+        <div class="cake">🎂</div>
+    </header>
+    
+    <div class="container">
+        <div class="message">
+            <p>Querida tía,</p>
+            <p>En este día tan especial, quiero celebrar no solo tu cumpleaños, sino también la maravillosa persona que eres. Tu amor, tu sabiduría y tu fortaleza han sido una inspiración para todos nosotros.</p>
+            <p>Que este nuevo año de vida te traiga infinitas alegrías, éxitos en todos tus proyectos y momentos inolvidables junto a tus seres queridos. Gracias por ser una tía excepcional y por todo el cariño que nos brindas.</p>
+            <p>¡Te quiero muchísimo y te deseo el mejor de los cumpleaños!</p>
+        </div>
+        
+        <div class="gallery">
+            <img src="/placeholder.svg?height=250&width=250" alt="Recuerdo 1">
+            <img src="/placeholder.svg?height=250&width=250" alt="Recuerdo 2">
+            <img src="/placeholder.svg?height=250&width=250" alt="Recuerdo 3">
+            <img src="/placeholder.svg?height=250&width=250" alt="Recuerdo 4">
+        </div>
+        
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="#" class="button" id="surprise-button">¡Sorpresa Especial!</a>
+        </div>
+    </div>
+    
+    <button class="music-control" id="music-toggle">🎵</button>
+    
+    <audio id="background-music" loop>
+        <source src="https://example.com/happy-birthday-song.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+    
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script>
+        // Confetti effect
+        function throwConfetti() {
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
+        }
+        
+        // Trigger confetti on page load
+        window.addEventListener('load', throwConfetti);
+        
+        // Surprise button effect
+        document.getElementById('surprise-button').addEventListener('click', function(e) {
+            e.preventDefault();
+            throwConfetti();
+            alert('¡Te deseamos un día lleno de sorpresas y alegrías! ¡Feliz cumpleaños!');
+        });
+        
+        // Background music control
+        const musicToggle = document.getElementById('music-toggle');
+        const backgroundMusic = document.getElementById('background-music');
+        
+        musicToggle.addEventListener('click', function() {
+            if (backgroundMusic.paused) {
+                backgroundMusic.play();
+                musicToggle.textContent = '🔇';
+            } else {
+                backgroundMusic.pause();
+                musicToggle.textContent = '🎵';
+            }
+        });
+    </script>
+</body>
+</html>
